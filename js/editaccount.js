@@ -28,7 +28,7 @@ function filterExpand() {
 populateAccountEditPage = () => {
   userId = sessionStorage.userID;
   $.ajax({
-    url: `http://localhost:3400/user/${userId}`,
+    url: `https://papori-backend.vercel.app/user/${userId}`,
     type: "GET",
     success: (userData) => {
       console.log("Product was found!");
@@ -71,7 +71,7 @@ fillEditUserInputs = (user, id) => {
     console.log(username, password, imageUrl, bio);
 
     $.ajax({
-      url: `http://localhost:3400/updateUser/${userId}`,
+      url: `https://papori-backend.vercel.app/updateUser/${userId}`,
       type: "PATCH",
       data: {
         username: username,
@@ -109,8 +109,7 @@ let checkLogin = () => {
     navContent = `
         <div class="account-button" id="nav-img-acc">
       <span id="username">${sessionStorage.userName.toUpperCase()}</span>
-      <span id="dp" style="background-image: url('${
-        sessionStorage.profileImg
+      <span id="dp" style="background-image: url('${sessionStorage.profileImg
       }')"></span>
       </div>
       `;

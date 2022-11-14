@@ -1,4 +1,4 @@
-const server = "http://localhost:3400"
+const server = "https://papori-backend.vercel.app"
 const loginBtn = document.getElementById("login-button");
 const usernameInput = document.getElementById("username-input");
 const passwordInput = document.getElementById("password-input");

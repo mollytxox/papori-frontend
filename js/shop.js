@@ -39,7 +39,7 @@ function filterExpand() {
 let showAllProduct = () => {
   $.ajax({
     type: "GET",
-    url: "http://localhost:3400/allProduct",
+    url: "https://papori-backend.vercel.app/allProduct",
     // your success function contains a object which can be named anything
     success: (products) => {
       console.log(products);
@@ -58,7 +58,7 @@ let showAllProduct = () => {
 populateProductModal = (productId) => {
   console.log(productId);
   $.ajax({
-    url: `http://localhost:3400/product/${productId}`,
+    url: `https://papori-backend.vercel.app/product/${productId}`,
     type: "GET",
     success: (productData) => {
       console.log("Product was found!");
@@ -196,7 +196,7 @@ let renderFavourites = (products) => {
   let userId = sessionStorage.userID;
   $.ajax({
     type: "GET",
-    url: `http://localhost:3400/user/${userId}`,
+    url: `https://papori-backend.vercel.app/user/${userId}`,
     success: (user) => {
       checkFavourites(user);
     },
@@ -251,7 +251,7 @@ let renderComments = (product) => {
 let putCommentsInModal = (productId) => {
   $.ajax({
     type: "GET",
-    url: `http://localhost:3400/product/${productId}`,
+    url: `https://papori-backend.vercel.app/product/${productId}`,
     success: (product) => {
       // inner comments html
       let productComments = document.getElementById("product-comments");
@@ -267,7 +267,7 @@ let putCommentsInModal = (productId) => {
   commentBtn.onclick = () => {
     console.log(productId);
     $.ajax({
-      url: "http://localhost:3400/postComment",
+      url: "https://papori-backend.vercel.app/postComment",
       type: "POST",
       data: {
         text: document.getElementById("comment-input").value,
@@ -300,7 +300,7 @@ let putCommentsInModal = (productId) => {
 populateEditModal = (productId) => {
   console.log(productId);
   $.ajax({
-    url: `http://localhost:3400/product/${productId}`,
+    url: `https://papori-backend.vercel.app/product/${productId}`,
     type: "GET",
     success: (productData) => {
       console.log("Product was found!");
@@ -316,7 +316,7 @@ populateEditModal = (productId) => {
 populateAccountEditPage = () => {
   userId = sessionStorage.userID;
   $.ajax({
-    url: `http://localhost:3400/user/${userId}`,
+    url: `https://papori-backend.vercel.app/user/${userId}`,
     type: "GET",
     success: (userData) => {
       console.log("Product was found!");
@@ -331,7 +331,7 @@ populateAccountEditPage = () => {
 
 populateDeleteModal = (productId) => {
   $.ajax({
-    url: `http://localhost:3400/product/${productId}`,
+    url: `https://papori-backend.vercel.app/product/${productId}`,
     type: "GET",
     success: (productData) => {
       console.log("Product was found!");
@@ -379,7 +379,7 @@ let collectEditButtons = () => {
 sendFavouriteId = (productId) => {
   let userId = sessionStorage.userID;
   $.ajax({
-    url: "http://localhost:3400/postFavourite",
+    url: "https://papori-backend.vercel.app/postFavourite",
     type: "POST",
     data: {
       user_id: userId,
@@ -462,7 +462,7 @@ fillEditInputs = (product, id) => {
     );
 
     $.ajax({
-      url: `http://localhost:3400/updateProduct/${productId}`,
+      url: `https://papori-backend.vercel.app/updateProduct/${productId}`,
       type: "PATCH",
       data: {
         name: productName,
@@ -492,7 +492,7 @@ let deleteProduct = (productId) => {
   // use ajax and go to the delete route
   $.ajax({
     // Let's go to our route
-    url: `http://localhost:3400/deleteProduct/${productId}`,
+    url: `https://papori-backend.vercel.app/deleteProduct/${productId}`,
     type: "DELETE",
     success: () => {
       // at this point, we can assume that the delete was successful
